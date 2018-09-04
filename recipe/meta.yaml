@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: httr_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/httr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/httr/httr_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: httpuv, jpeg, knitr, png, testthat (>= 0.8.0), readr, xml2, rmarkdown, covr
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
